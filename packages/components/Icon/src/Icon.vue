@@ -4,7 +4,8 @@ import { createNameSpace } from '@learn-element-plus/utils'
 import { iconProps } from './icon'
 
 defineOptions({
-  name: 'ZIcon'
+  name: 'ZIcon',
+  inheritAttrs: false
 })
 
 const ns = createNameSpace('icon')
@@ -24,7 +25,7 @@ const classNames = computed(() => [ns.b()])
 </script>
 
 <template>
-  <i :style="style" :class="classNames">
+  <i :style="style" :class="classNames" v-bind="$attrs">
     <slot />
   </i>
 </template>
