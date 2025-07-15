@@ -10,5 +10,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.13.0"
+  "packageManager": "pnpm@10.13.0",
+  "dependencies": {
+    "@learn-element-plus/utils": "workspace:^"
+  }
 }

@@ -1,0 +1,55 @@
+@import url(./constants.less);
+
+.namespace(@name, @rule) {
+  .@{name-space}@{common-separator}@{name} {
+    @rule();
+  }
+}
+
+.b(@block, @rule) {
+  &@{common-separator}@{block} {
+    @rule();
+  }
+}
+
+.e(@element, @rule) {
+  &@{element-separator}@{element} {
+    @rule();
+  }
+}
+
+.m(@modifier, @rule) {
+  &@{modifier-separator}@{modifier} {
+    @rule();
+  }
+}
+
+.be(@block, @element, @rule) {
+  &@{common-separator}@{block}@{element-separator}@{element} {
+    @rule();
+  }
+}
+
+.bm(@block, @modifier, @rule) {
+  &@{common-separator}@{block}@{modifier-separator}@{modifier} {
+    @rule();
+  }
+}
+
+.em(@element, @modifier, @rule) {
+  &@{element-separator}@{element}@{modifier-separator}@{modifier} {
+    @rule();
+  }
+}
+
+.bem(@block, @element, @modifier, @rule) {
+  &@{common-separator}@{block}@{element-separator}@{element}@{modifier-separator}@{modifier} {
+    @rule();
+  }
+}
+
+.is(@state, @rule) {
+  &.@{state-prefix}@{state} {
+    @rule();
+  }
+}
