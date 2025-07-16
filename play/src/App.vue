@@ -20,6 +20,8 @@ const handleClick = () => {
     <z-icon>
       <Loading />
     </z-icon>
+
+    <z-button>none</z-button>
   </div>
 </template>
 
