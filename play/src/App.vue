@@ -1,28 +1,15 @@
 <script setup lang="ts">
-import { Plus, Loading } from '@element-plus/icons-vue'
+import LayOut from '@/lay-out.vue'
 
-const handleClick = () => {
-  console.log('click')
-}
+import Icon from '@/Icon.vue'
+import Button from '@/Button.vue'
 </script>
 
 <template>
-  <div>
-    <z-icon
-      color="#f00"
-      size="30"
-      a="1"
-      style="cursor: pointer"
-      @click="handleClick"
-    >
-      <Plus />
-    </z-icon>
-    <z-icon>
-      <Loading />
-    </z-icon>
-
-    <z-button>none</z-button>
-  </div>
+  <lay-out>
+    <icon></icon>
+    <Button></Button>
+  </lay-out>
 </template>
 
 <style scoped></style>

@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@element-plus/icons-vue':
+        specifier: ^2.3.1
+        version: 2.3.1(vue@3.5.17(typescript@5.8.3))
     devDependencies:
       '@commitlint/cli':
         specifier: ^19.8.1
@@ -69,9 +73,6 @@ importers:
 
   play:
     dependencies:
-      '@element-plus/icons-vue':
-        specifier: ^2.3.1
-        version: 2.3.1(vue@3.5.17(typescript@5.8.3))
       learn-element-plus:
         specifier: workspace:^
         version: link:../packages/element-plus

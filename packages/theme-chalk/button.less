@@ -1,0 +1,107 @@
+@import url(common/create.less);
+@import url(common/var.less);
+
+.buttonType() {
+  primary: #409eff;
+  success: #67c23a;
+  warning: #e6a23c;
+  danger: #f56c6c;
+  error: #f56c6c;
+  info: #909399;
+  default: #ffffff;
+}
+
+.buttonSize() {
+  large: 48px;
+  default: 36px;
+  small: 26px;
+}
+
+.namespace(button, {
+  .disabled() {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  color: @color-white;
+  cursor: pointer;
+  //min-width: 85px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+
+  .is(disabled, {
+    .disabled()
+  });
+
+  each(.buttonSize(), .(@value, @type) {
+    .b(@type, {
+      height: @value;
+
+      .is(circle, {
+        width: @value;
+        height: @value;
+        padding: 0;
+        border-radius: 50%;
+      });
+
+      .is(round, {
+        border-radius: (@value / 2);
+      });
+    })
+  })
+
+  each(.buttonType(), .(@value, @type) {
+    .e(@type, {
+      background-color: @value;
+      border: 1px solid @value;
+
+      & when (@type = default) {
+        color: @color-black;
+        border: 1px solid #dcdfe6;
+      }
+
+      .is(loading, {
+        .disabled();
+
+        @keyframes spin {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+        .namespace(icon, {
+          animation: spin 2s linear infinite;
+        });
+      });
+
+      .is(link, {
+        color: @value;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+
+        height: auto;
+
+        &:hover {
+          opacity: 0.6;
+        }
+
+        & when (@type = default) {
+          color: @color-black;
+        }
+      });
+    })
+  })
+
+  .namespace(icon, {
+    color: inherit !important;
+  });
+});
