@@ -1,0 +1,36 @@
+@import url(common/create.less);
+@import url(common/var.less);
+
+.linkType() {
+  .colorType();
+}
+
+.namespace(link, {
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  each(.linkType(), .(@value, @type) {
+    .is(disabled, {
+      cursor: not-allowed;
+      opacity: 0.6;
+    });
+
+    .m(@type, {
+      color: @value;
+
+      &:hover {
+        opacity: 0.6;
+      }
+
+      & when (@type = default) {
+        color: @color-black;
+      }
+
+      .is(underline, {
+
+      })
+    })
+  })
+});
