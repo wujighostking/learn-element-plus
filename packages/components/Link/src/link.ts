@@ -1,7 +1,7 @@
 import { Component, ExtractPropTypes, PropType } from 'vue'
 import { ButtonType } from '../../Button/src/button'
 
-export type underlineType = 'always' | 'hover' | 'never' | boolean
+export type underlineType = 'always' | 'hover' | 'never'
 export type targetType = '_blank' | '_parent' | '_self' | '_top'
 
 export const linkProps = {

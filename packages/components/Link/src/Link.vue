@@ -14,9 +14,9 @@ const ns = createNameSpace('link')
 const { type, underline, disabled, href, target, icon } = defineProps(linkProps)
 const classNames = computed(() => [
   ns.b(),
-  ns.m(type),
+  ns.b(type),
   ns.is('disabled', disabled),
-  ns.is('underline', underline && !disabled)
+  !disabled && ns.bm(type, underline)
 ])
 
 const handleClick = (e: MouseEvent) => {
