@@ -14,6 +14,7 @@
   align-items: center;
   text-decoration: none;
   outline: none;
+  border-bottom: 1px solid transparent;
 
   each(.linkType(), .(@value, @type) {
     .is(disabled, {
@@ -25,7 +26,11 @@
       color: @value;
 
       &:hover {
-        opacity: 0.4;
+        opacity: 0.6;
+
+        & when (@type = default) {
+          color: .colorType()[primary];
+        }
       }
 
       & when (@type = default) {
@@ -36,7 +41,7 @@
         border-bottom: 1px solid @value;
 
         & when (@type = default) {
-          border-bottom: 1px solid @color-black;
+          border-bottom: 1px solid .colorType()[primary];
         }
       });
 
@@ -47,30 +52,10 @@
           border-bottom: 1px solid @value;
 
           & when (@type = default) {
-            border-bottom: 1px solid @color-black;
+            border-bottom: 1px solid .colorType()[primary];
           }
         }
       })
-
-      //&.always {
-      //  border-bottom: 1px solid @value;
-      //
-      //  & when (@type = default) {
-      //    border-bottom: 1px solid @color-black;
-      //  }
-      //}
-      //
-      //&.hover {
-      //  &:hover {
-      //    border-bottom: 1px solid @value;
-      //
-      //    border-bottom: 1px solid @value;
-      //
-      //    & when (@type = default) {
-      //      border-bottom: 1px solid @color-black;
-      //    }
-      //  }
-      //}
     })
   })
 });
