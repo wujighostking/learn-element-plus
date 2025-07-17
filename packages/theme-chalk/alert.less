@@ -1,0 +1,52 @@
+@import url("common/create.less");
+@import url("common/var.less");
+
+.alertType() {
+  .colorType();
+}
+
+.namespace(alert, {
+  width: 100%;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  padding: 4px 12px;
+  cursor: default;
+
+  border-radius: 4px;
+
+  position: relative;
+
+  each(.alertType(), .(@value, @type) {
+    .b(@type, {
+      background-color: @value;
+      color: @color-white;
+
+      .e(icon, {
+        color: (@value * 1.5) !important;
+        margin-right: 12px;
+
+        font-size: 150% !important;
+      });
+    });
+  })
+
+  .e(content, {
+    font-size: 18px;
+
+    .m(description, {
+      font-size: 15px;
+    })
+  });
+
+  .e(close, {
+    cursor: pointer;
+    position: absolute;
+    right: 12px;
+    color: @color-white !important;
+  });
+
+  .is(center, {
+    justify-content: center;
+  })
+});
