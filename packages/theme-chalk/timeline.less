@@ -1,11 +1,17 @@
 @import url('common/create.less');
+@import url('common/var.less');
+
+.sizeType() {
+  small: 8px;
+  normal: 16px;
+};
 
 .namespace(timeline-item, {
   position: relative;
   padding-bottom: 20px;
 
   .e(tail, {
-    height: 100%;
+    height: calc(100% + 10px);
     position: absolute;
     top: 4px;
     left: -23px;
@@ -19,26 +25,58 @@
         display: none;
       });
     });
-  }
+  };
 
-  .e(node, {
-    position: absolute;
-    top: 4px;
-    left: -30px;
-    background-color: #e4e7ed;
-    border-color: #e4e7ed;
-    border-radius: 50%;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  each(.sizeType(), .(@value, @type) {
+    .em(node, @type, {
+      position: absolute;
+      top: 4px;
+      left: (-22px - @value * 0.5);
+      background-color: #e4e7ed;
+      border-color: #e4e7ed;
+      border-radius: 50%;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      padding: 2px;
 
-    width: 16px;
-    height: 16px;
+      width: @value;
+      height: @value;
+
+      & when (@type = small) {
+        top: 10px;
+      }
+    });
+  });
+
+  each(.colorType(), .(@value, @type) {
+    .m(@type, {
+      background-color: @value;
+    });
   });
 });
 
 .namespace(timeline, {
   position: relative;
   list-style: none;
+});
+
+.is(hollow, {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  each(.sizeType(), .(@value, @type) {
+    .namespace(timeline-item, {
+      .em(hollow, @type, {
+        width: (@value * 0.5);
+        height: (@value * 0.5);
+        background-color: #fff;
+        border-radius: 50%;
+      });
+    });
+  });
+
 });

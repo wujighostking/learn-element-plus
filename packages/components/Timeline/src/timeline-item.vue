@@ -6,7 +6,9 @@ defineOptions({
   name: 'ZTimelineItem',
 })
 
-const { timestamp } = defineProps(timelineItemProps)
+// eslint-disable-next-line style/operator-linebreak
+const { timestamp, hideTimestamp, placement, type, size, hollow } =
+  defineProps(timelineItemProps)
 
 const ns = createNameSpace('timeline-item')
 </script>
@@ -14,14 +16,27 @@ const ns = createNameSpace('timeline-item')
 <template>
   <li :class="ns.b()">
     <div :class="[ns.e('tail')]" />
-    <div :class="[ns.e('node')]" />
+    <div
+      v-if="!$slots.dot"
+      :class="[ns.em('node', size), ns.m(type), ns.is('hollow', hollow)]"
+    >
+      <div :class="ns.em('hollow', size)" />
+    </div>
+
+    <div v-if="$slots.dot" :class="[ns.em('node', size), ns.m(type)]">
+      <slot name="dot" />
+    </div>
 
     <div>
+      <div v-if="!hideTimestamp && placement === 'top'">
+        {{ timestamp }}
+      </div>
+
       <div>
         <slot />
       </div>
 
-      <div>
+      <div v-if="!hideTimestamp && placement === 'bottom'">
         {{ timestamp }}
       </div>
     </div>
