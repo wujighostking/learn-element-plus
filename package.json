@@ -1,24 +1,30 @@
 {
   "name": "learn-element-plus",
-  "version": "1.0.0",
   "type": "module",
+  "version": "1.0.0",
+  "packageManager": "pnpm@10.13.0",
   "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
   "main": "index.js",
   "scripts": {
     "dev": "pnpm -C play dev",
-    "lint": "eslint --fix --ext .js,.ts,.tsx,.vue --ignore-pattern .gitignore .",
+    "lint": "eslint --fix",
     "prepare": "husky",
     "commitlint": "commitlint --edit"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "packageManager": "pnpm@10.13.0",
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.1"
+  },
   "devDependencies": {
+    "@antfu/eslint-config": "^4.17.0",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@eslint/js": "^9.31.0",
+    "@unocss/eslint-plugin": "^66.3.3",
     "eslint": "^9.31.0",
+    "eslint-plugin-format": "^1.0.1",
     "eslint-plugin-vue": "^10.3.0",
     "globals": "^16.3.0",
     "husky": "^9.1.7",
@@ -29,17 +35,12 @@
     "stylelint-config-standard": "^38.0.0",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.37.0",
+    "unocss": "^66.3.3",
     "vite": "^7.0.4"
-  },
-  "dependencies": {
-    "@element-plus/icons-vue": "^2.3.1"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,vue}": [
       "eslint --fix"
-    ],
-    "*.{css,scss,less}": [
-      "stylelint --fix"
     ]
   }
 }

@@ -1,23 +1,24 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import { createNameSpace } from '@learn-element-plus/utils'
+import { computed } from 'vue'
 import { iconProps } from './icon'
 
 defineOptions({
   name: 'ZIcon',
-  inheritAttrs: false
+  inheritAttrs: false,
 })
-
-const ns = createNameSpace('icon')
 
 const { color, size } = defineProps(iconProps)
 
+const ns = createNameSpace('icon')
+
 const style = computed(() => {
-  if (!color && !size) return {}
+  if (!color && !size)
+    return {}
 
   return {
-    fontSize: size + 'px',
-    color: color
+    fontSize: `${size}px`,
+    color,
   }
 })
 

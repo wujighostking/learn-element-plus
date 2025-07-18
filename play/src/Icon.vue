@@ -2,13 +2,11 @@
 import { Loading, Plus } from '@element-plus/icons-vue'
 import ComponentLayout from '@/component-layout.vue'
 
-const handleClick = () => {
-  console.log('click')
-}
+function handleClick() {}
 </script>
 
 <template>
-  <component-layout>
+  <ComponentLayout>
     <z-icon
       color="#f00"
       size="30"
@@ -21,7 +19,7 @@ const handleClick = () => {
     <z-icon>
       <Loading />
     </z-icon>
-  </component-layout>
+  </ComponentLayout>
 </template>
 
 <style scoped></style>

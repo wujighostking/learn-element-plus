@@ -1,36 +1,36 @@
 <script setup lang="ts">
+import { Close } from '@element-plus/icons-vue'
 import { createNameSpace } from '@learn-element-plus/utils'
 import { computed, ref } from 'vue'
-import { Close } from '@element-plus/icons-vue'
 import { alertProps, iconMap } from './alert'
 
 defineOptions({
-  name: 'ZAlert'
+  name: 'ZAlert',
 })
+
+const { title, type, description, closeable, center, closeText, showIcon }
+  = defineProps(alertProps)
 
 const _rootRef = ref<HTMLDivElement>()
 
 const ns = createNameSpace('alert')
 
-const { title, type, description, closeable, center, closeText, showIcon } =
-  defineProps(alertProps)
-
 const classNames = computed(() => [
   ns.b(),
   ns.b(type),
   ns.is('close', closeable),
-  ns.is('center', center)
+  ns.is('center', center),
 ])
 
-const handleClose = () => {
+function handleClose() {
   _rootRef.value?.parentElement?.remove()
 }
 </script>
 
 <template>
-  <div :class="classNames" ref="_rootRef">
+  <div ref="_rootRef" :class="classNames">
     <z-icon :class="ns.be(type, 'icon')">
-      <Component :is="iconMap[type]"></Component>
+      <Component :is="iconMap[type]" />
     </z-icon>
 
     <div :class="ns.e('content')">
@@ -45,7 +45,7 @@ const handleClose = () => {
     </span>
     <template v-else-if="showIcon">
       <z-icon :class="ns.e('close')" @click="handleClose">
-        <slot name="icon" v-if="$slots.icon"></slot>
+        <slot v-if="$slots.icon" name="icon" />
         <Close v-else />
       </z-icon>
     </template>

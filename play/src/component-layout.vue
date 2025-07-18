@@ -2,7 +2,7 @@
 
 <template>
   <div class="flex">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 

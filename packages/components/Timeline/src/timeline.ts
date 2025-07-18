@@ -1,5 +1,5 @@
-import { defineComponent, provide, h, renderSlot } from 'vue'
 import { createNameSpace } from '@learn-element-plus/utils'
+import { defineComponent, h, provide, renderSlot } from 'vue'
 
 const Timeline = defineComponent({
   name: 'ZTimeline',
@@ -9,7 +9,7 @@ const Timeline = defineComponent({
     provide('timeline', slots)
 
     return () => h('ul', { class: ns.b() }, [renderSlot(slots, 'default')])
-  }
+  },
 })
 
 export default Timeline

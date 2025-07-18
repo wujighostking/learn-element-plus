@@ -1,51 +1,51 @@
-import type { PropType, Component } from 'vue'
+import type { Component, PropType } from 'vue'
 import { Loading } from '@element-plus/icons-vue'
 
-export type ButtonType =
-  | 'default'
-  | 'primary'
-  | 'success'
-  | 'warning'
-  | 'info'
-  | 'danger'
-  | ''
+export type ButtonType
+  = | 'default'
+    | 'primary'
+    | 'success'
+    | 'warning'
+    | 'info'
+    | 'danger'
+    | ''
 
 export type ButtonSize = 'large' | 'default' | 'small'
 
 export const buttonProps = {
   type: {
     type: String as PropType<ButtonType>,
-    default: 'default'
+    default: 'default',
   },
   size: {
     type: String as PropType<ButtonSize>,
-    default: 'default'
+    default: 'default',
   },
   disabled: {
     type: Boolean,
-    default: false
+    default: false,
   },
   round: {
     type: Boolean,
-    default: false
+    default: false,
   },
   icon: {
-    type: Object as PropType<Component>
+    type: Object as PropType<Component>,
   },
   circle: {
     type: Boolean,
-    default: false
+    default: false,
   },
   link: {
     type: Boolean,
-    default: false
+    default: false,
   },
   loading: {
     type: Boolean,
-    default: false
+    default: false,
   },
   loadingIcon: {
     type: Object as PropType<Component>,
-    default: () => Loading
-  }
+    default: () => Loading,
+  },
 } as const

@@ -1,24 +1,11 @@
 <script setup lang="ts">
-import { buttonProps } from './button'
-import { computed } from 'vue'
 import { createNameSpace } from '@learn-element-plus/utils'
+import { computed } from 'vue'
+import { buttonProps } from './button'
 
 defineOptions({
-  name: 'ZButton'
+  name: 'ZButton',
 })
-
-const emits = defineEmits(['click'])
-
-const handleClick = (e: MouseEvent) => {
-  if (disabled || loading) {
-    e.preventDefault()
-    return
-  }
-
-  emits('click', e)
-}
-
-const ns = createNameSpace('button')
 
 const {
   type,
@@ -29,8 +16,21 @@ const {
   circle,
   link,
   loading,
-  loadingIcon
+  loadingIcon,
 } = defineProps(buttonProps)
+
+const emits = defineEmits(['click'])
+
+function handleClick(e: MouseEvent) {
+  if (disabled || loading) {
+    e.preventDefault()
+    return
+  }
+
+  emits('click', e)
+}
+
+const ns = createNameSpace('button')
 
 // const classNames = computed(() => [ns.b(), ns.b(type)])
 const classNames = computed(() => [
@@ -41,7 +41,7 @@ const classNames = computed(() => [
   ns.is('round', round),
   ns.is('circle', circle),
   ns.is('loading', loading),
-  ns.is('link', link)
+  ns.is('link', link),
 ])
 </script>
 
@@ -49,12 +49,12 @@ const classNames = computed(() => [
   <button :class="classNames" @click="handleClick">
     <template v-if="loading">
       <z-icon>
-        <component :is="loadingIcon"></component>
+        <component :is="loadingIcon" />
       </z-icon>
     </template>
     <template v-else-if="icon">
       <z-icon>
-        <component :is="icon"></component>
+        <component :is="icon" />
       </z-icon>
     </template>
     <slot />

@@ -1,10 +1,10 @@
 import {
-  ZIcon,
-  ZButton,
-  ZLink,
   ZAlert,
+  ZButton,
+  ZIcon,
+  ZLink,
   ZTimeline,
-  ZTimelineItem
+  ZTimelineItem,
 } from '@learn-element-plus/components'
 
 export default [ZIcon, ZButton, ZLink, ZAlert, ZTimeline, ZTimelineItem]

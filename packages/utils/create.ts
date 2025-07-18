@@ -34,7 +34,7 @@ function createBEM(prefix: string) {
     bm,
     em,
     bem,
-    is
+    is,
   }
 }
 
@@ -42,7 +42,7 @@ function _bem(
   prefixName: string,
   blockSuffix: string,
   element: string,
-  modifier: string
+  modifier: string,
 ) {
   if (blockSuffix) {
     prefixName += `-${blockSuffix}`

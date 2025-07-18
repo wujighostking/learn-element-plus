@@ -4,21 +4,21 @@ import ComponentLayout from '@/component-layout.vue'
 const activities = [
   {
     content: 'Event start',
-    timestamp: '2018-04-15'
+    timestamp: '2018-04-15',
   },
   {
     content: 'Approved',
-    timestamp: '2018-04-13'
+    timestamp: '2018-04-13',
   },
   {
     content: 'Success',
-    timestamp: '2018-04-11'
-  }
+    timestamp: '2018-04-11',
+  },
 ]
 </script>
 
 <template>
-  <component-layout>
+  <ComponentLayout>
     <z-timeline>
       <z-timeline-item
         v-for="(activity, index) in activities"
@@ -28,7 +28,7 @@ const activities = [
         {{ activity.content }}
       </z-timeline-item>
     </z-timeline>
-  </component-layout>
+  </ComponentLayout>
 </template>
 
 <style scoped></style>

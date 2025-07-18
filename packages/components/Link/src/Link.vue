@@ -1,25 +1,26 @@
 <script setup lang="ts">
-import { linkProps } from './link'
-import { computed } from 'vue'
 import { createNameSpace } from '@learn-element-plus/utils'
+import { computed } from 'vue'
+import { linkProps } from './link'
 
 defineOptions({
-  name: 'ZLink'
+  name: 'ZLink',
 })
+
+const { type, underline, disabled, href, target, icon } = defineProps(linkProps)
 
 const emits = defineEmits(['click'])
 
 const ns = createNameSpace('link')
 
-const { type, underline, disabled, href, target, icon } = defineProps(linkProps)
 const classNames = computed(() => [
   ns.b(),
   ns.b(type),
   ns.is('disabled', disabled),
-  !disabled && ns.bm(type, underline)
+  !disabled && ns.bm(type, underline),
 ])
 
-const handleClick = (e: MouseEvent) => {
+function handleClick(e: MouseEvent) {
   if (disabled) {
     e.preventDefault()
     return
@@ -38,10 +39,10 @@ const handleClick = (e: MouseEvent) => {
   >
     <template v-if="icon">
       <z-icon>
-        <component :is="icon"></component>
+        <component :is="icon" />
       </z-icon>
     </template>
-    <slot></slot>
+    <slot />
   </a>
 </template>
 

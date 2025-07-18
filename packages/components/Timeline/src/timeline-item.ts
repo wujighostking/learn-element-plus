@@ -1,15 +1,15 @@
 export const timelineItemProps = {
   hideTimestamp: {
     type: Boolean,
-    default: false
+    default: false,
   },
   placement: {
     type: String,
     values: ['top', 'bottom'],
-    default: 'bottom'
+    default: 'bottom',
   },
   timestamp: {
     type: String,
-    default: ''
-  }
+    default: '',
+  },
 } as const

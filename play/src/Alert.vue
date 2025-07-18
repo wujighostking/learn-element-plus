@@ -1,40 +1,40 @@
 <script setup lang="ts">
-import ComponentLayout from '@/component-layout.vue'
-import LayOut from '@/lay-out.vue'
 import type { alertType } from '@learn-element-plus/components'
 import { CircleCloseFilled } from '@element-plus/icons-vue'
+import ComponentLayout from '@/component-layout.vue'
+import LayOut from '@/lay-out.vue'
 
 const types: alertType[] = ['primary', 'success', 'info', 'warning', 'error']
 </script>
 
 <template>
-  <lay-out>
+  <LayOut>
     <template v-for="(v, i) in types" :key="v">
-      <component-layout>
+      <ComponentLayout>
         <z-alert
           :title="`${v} alert`"
           :description="i < 2 ? v : ''"
           :type="v"
         />
-      </component-layout>
+      </ComponentLayout>
     </template>
 
     <template v-for="(v, i) in types" :key="v">
-      <component-layout>
+      <ComponentLayout>
         <z-alert
           :title="`${v} center`"
           :description="i < 2 ? v : ''"
           :type="v"
           center
-          :close-text="i == 0 ? 'closeText' : ''"
+          :close-text="i === 0 ? 'closeText' : ''"
         >
           <template #icon>
             <CircleCloseFilled />
           </template>
         </z-alert>
-      </component-layout>
+      </ComponentLayout>
     </template>
-  </lay-out>
+  </LayOut>
 </template>
 
 <style scoped></style>
