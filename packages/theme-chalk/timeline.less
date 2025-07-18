@@ -1,0 +1,44 @@
+@import url("common/create.less");
+
+.namespace(timeline-item, {
+  position: relative;
+  padding-bottom: 20px;
+
+  .e(tail, {
+    height: 100%;
+    position: absolute;
+    top: 4px;
+    left: -23px;
+
+    border-left: 2px solid #e4e7ed;
+  });
+
+  &:last-child {
+    .namespace(timeline-item, {
+      .e(tail, {
+        display: none;
+      });
+    });
+  }
+
+  .e(node, {
+    position: absolute;
+    top: 4px;
+    left: -30px;
+    background-color: #e4e7ed;
+    border-color: #e4e7ed;
+    border-radius: 50%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 16px;
+    height: 16px;
+  });
+});
+
+.namespace(timeline, {
+  position: relative;
+  list-style: none;
+});

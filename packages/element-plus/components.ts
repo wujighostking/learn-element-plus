@@ -3,10 +3,11 @@ import {
   ZButton,
   ZLink,
   ZAlert,
-  ZTimeline
+  ZTimeline,
+  ZTimelineItem
 } from '@learn-element-plus/components'
 
-export default [ZIcon, ZButton, ZLink, ZAlert, ZTimeline]
+export default [ZIcon, ZButton, ZLink, ZAlert, ZTimeline, ZTimelineItem]
 
 declare module 'vue' {
   export interface GlobalComponents {
@@ -15,5 +16,6 @@ declare module 'vue' {
     ZLink: typeof ZLink
     ZAlert: typeof ZAlert
     ZTimeline: typeof ZTimeline
+    ZTimelineItem: typeof ZTimelineItem
   }
 }

@@ -1,1 +1,16 @@
-export const timelineProps = {} as const
+import { defineComponent, provide, h, renderSlot } from 'vue'
+import { createNameSpace } from '@learn-element-plus/utils'
+
+const Timeline = defineComponent({
+  name: 'ZTimeline',
+  setup(_, { slots }) {
+    const ns = createNameSpace('timeline')
+
+    provide('timeline', slots)
+
+    return () => h('ul', { class: ns.b() }, [renderSlot(slots, 'default')])
+  }
+})
+
+export default Timeline
+export type TimelineInstance = InstanceType<typeof Timeline>
