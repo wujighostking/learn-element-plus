@@ -10,6 +10,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "pnpm -C play dev",
+    "build": "pnpm -C packages\\element-plus build",
     "lint": "eslint --fix",
     "prepare": "husky",
     "commitlint": "commitlint --edit"
@@ -23,6 +24,7 @@
     "@commitlint/config-conventional": "^19.8.1",
     "@eslint/js": "^9.31.0",
     "@unocss/eslint-plugin": "^66.3.3",
+    "@vitejs/plugin-vue": "^6.0.0",
     "eslint": "^9.31.0",
     "eslint-plugin-format": "^1.0.1",
     "eslint-plugin-vue": "^10.3.0",

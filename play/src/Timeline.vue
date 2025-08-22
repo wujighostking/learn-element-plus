@@ -11,34 +11,34 @@ interface IItem extends TimelineItemProps {
 
 const activities: IItem[] = [
   {
-    content: 'Event start',
+    content: '隐藏时间戳',
     timestamp: '2018-04-15',
     hideTimestamp: true,
   },
   {
-    content: 'Approved',
+    content: '基础设置',
     timestamp: '2018-04-13',
     placement: 'top',
   },
   {
-    content: 'Success',
+    content: 'size设置为small',
     timestamp: '2018-04-11',
     type: 'primary',
     size: 'small',
   },
   {
-    content: 'Success',
+    content: '自定义icon',
     timestamp: '2018-04-11',
     icon: Plus,
   },
   {
-    content: 'Success',
+    content: '空心点',
     timestamp: '2018-04-11',
     hollow: true,
     type: 'primary',
   },
   {
-    content: 'Success',
+    content: 'small hollow',
     timestamp: '2018-04-11',
     hollow: true,
     size: 'small',
