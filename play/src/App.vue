@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Alert from '@/Alert.vue'
 import Button from '@/Button.vue'
+import Calendar from '@/Calendar.vue'
 import Icon from '@/Icon.vue'
 import LayOut from '@/lay-out.vue'
 import Link from '@/Link.vue'
@@ -23,6 +24,8 @@ import Timeline from '@/Timeline.vue'
 
     <Timeline />
     <hr>
+
+    <Calendar />
   </LayOut>
 </template>
 

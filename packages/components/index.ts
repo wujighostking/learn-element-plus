@@ -1,5 +1,6 @@
 export * from './Alert'
 export * from './Button'
+export * from './Calendar'
 export * from './Icon'
 export * from './Link'
 export * from './Timeline'
