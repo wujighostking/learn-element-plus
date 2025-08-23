@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { createNameSpace } from '@learn-element-plus/utils'
 import { getDate, getDaysInMonth, getWeekFromDate } from '@learn-element-plus/utils/date'
+import { equal } from '@learn-element-plus/utils/equal'
 import { computed, ref, watch } from 'vue'
 
 defineOptions({
@@ -9,6 +10,8 @@ defineOptions({
 
 const ns = createNameSpace('calendar')
 
+const _currentDate = getDate()
+
 const date = ref(getDate())
 const previousMonthDays = computed(() => getDaysInMonth(date))
 const currentMonthDays = computed(() => getDaysInMonth(date))
@@ -16,8 +19,13 @@ const weekIndex = computed(() => getWeekFromDate(date, 1))
 
 const weeks = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
 const days = ref<number[][]>([...createDays()])
+const isCurrentMonth = ref(true)
 
 const todayIndex = computed<[number, number]>(() => {
+  if (!isCurrentMonth.value) {
+    return [0, weekIndex.value]
+  }
+
   for (let i = 0; i < days.value.length; i++) {
     for (let j = 0; j < days.value[i].length; j++) {
       const day = days.value[i][j]
@@ -29,7 +37,7 @@ const todayIndex = computed<[number, number]>(() => {
 
   return [0, weekIndex.value]
 })
-const isSelected = ref<[number, number]>([...todayIndex.value])
+const selectedIndex = ref<[number, number]>([...todayIndex.value])
 const isPrevious = computed(() => {
   return days.value?.[0].findIndex(day => day === 1)
 })
@@ -52,12 +60,17 @@ function toPrevious() {
     month = nextMonth
   }
 
-  date.value = { year, month, day }
+  const _date = { year, month, day }
+  isCurrentMonth.value = equal(_date, _currentDate)
+
+  date.value = _date
+  selectedIndex.value = [...todayIndex.value]
 }
 function toToday() {
   date.value = getDate()
 
-  isSelected.value = [...todayIndex.value]
+  isCurrentMonth.value = true
+  selectedIndex.value = [...todayIndex.value]
 }
 function toNext() {
   let { year, month, day } = date.value
@@ -72,7 +85,11 @@ function toNext() {
     month = nextMonth
   }
 
-  date.value = { year, month, day }
+  const _date = { year, month, day }
+  isCurrentMonth.value = equal(_date, _currentDate)
+
+  date.value = _date
+  selectedIndex.value = [...todayIndex.value]
 }
 
 function createDays() {
@@ -100,12 +117,12 @@ function createDays() {
 }
 
 function setDay(index: number, i: number) {
-  isSelected.value = [index, i]
+  selectedIndex.value = [index, i]
 }
 
 watch(date, () => {
   days.value = [...createDays()]
-})
+}, { flush: 'sync' })
 </script>
 
 <template>
@@ -141,7 +158,7 @@ watch(date, () => {
               <div
                 :class="[
                   ns.em('date', 'day'),
-                  ns.is('selected', isSelected[0] === index && isSelected[1] === i),
+                  ns.is('selected', selectedIndex[0] === index && selectedIndex[1] === i),
                   ns.is('today', todayIndex[0] === index && todayIndex[1] === i),
                   ns.is('previous', index === 0 && i < isPrevious),
                   ns.is('next', index === days.length - 1 && i >= isNext),
