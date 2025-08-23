@@ -168,7 +168,10 @@ watch(date, () => {
                 ]"
                 @click="setDay(index, i)"
               >
-                {{ day }}
+                <slot name="date-cell" :date="{ day }" />
+                <span v-if="!$slots['date-cell']">
+                  {{ day }}
+                </span>
               </div>
             </template>
           </div>
