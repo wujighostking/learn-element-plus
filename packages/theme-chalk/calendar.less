@@ -1,0 +1,53 @@
+@import url(common/create.less);
+@import url(common/var.less);
+
+.button() {
+  border: 1px solid #ebeef5;
+  box-sizing: border-box;
+  padding: 2px 8px;
+  font-size: 14px;
+  border-radius: 2px;
+  background-color: transparent;
+
+  &:hover {
+    color: .colorType()[primary];
+    background-color: #ecf5ff;
+  }
+}
+
+.namespace(calendar, {
+  width: 100%;
+
+  .e(header, {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ebeef5;
+
+    box-sizing: border-box;
+    padding: 0 24px 8px;
+
+    .m(button, {
+      display: flex;
+      cursor: pointer;
+    });
+
+    .m(previous, {
+      .button();
+    });
+
+    .m(today, {
+      .button();
+      border-left: 0;
+      border-right: 0;
+    });
+
+    .m(next, {
+      .button();
+    })
+  })
+
+
+});
+
+
