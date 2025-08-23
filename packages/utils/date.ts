@@ -6,8 +6,8 @@ interface IDateFormatter {
   day: number
 }
 
-export function getDate() {
-  const date = new Date()
+export function getDate(date: Date | undefined) {
+  date = date ?? new Date()
 
   const year = date.getFullYear()
   const month = date.getMonth() + 1

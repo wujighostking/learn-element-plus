@@ -3,16 +3,19 @@ import { createNameSpace } from '@learn-element-plus/utils'
 import { getDate, getDaysInMonth, getWeekFromDate } from '@learn-element-plus/utils/date'
 import { equal } from '@learn-element-plus/utils/equal'
 import { computed, ref, watch } from 'vue'
+import { CalendarProps } from './calendar'
 
 defineOptions({
   name: 'ZCalendar',
 })
 
+const { modelValue } = defineProps(CalendarProps)
+
 const ns = createNameSpace('calendar')
 
-const _currentDate = getDate()
+const _currentDate = getDate(modelValue)
 
-const date = ref(getDate())
+const date = ref(getDate(modelValue))
 const previousMonthDays = computed(() => getDaysInMonth(date))
 const currentMonthDays = computed(() => getDaysInMonth(date))
 const weekIndex = computed(() => getWeekFromDate(date, 1))
@@ -67,7 +70,7 @@ function toPrevious() {
   selectedIndex.value = [...todayIndex.value]
 }
 function toToday() {
-  date.value = getDate()
+  date.value = getDate(modelValue)
 
   isCurrentMonth.value = true
   selectedIndex.value = [...todayIndex.value]
