@@ -45,9 +45,57 @@
     .m(next, {
       .button();
     })
-  })
+  });
 
+  .e(date, {
+    box-sizing: border-box;
+    padding: 0 24px;
+    height: 48px;
 
+    .m(week, {
+      display: flex;
+      justify-content: space-around;
+    });
+
+    .m(container, {
+      display: flex;
+      justify-content: space-between;
+    });
+
+    .m(day, {
+      width: 100%;
+      height: 96px;
+      border: 1px solid #ebeef5;
+      box-sizing: border-box;
+      padding: 12px;
+      cursor: pointer;
+
+      .is(today, {
+        color: .colorType()[primary];
+      });
+
+      .is(selected, {
+        background-color: #ecf5ff;
+        color: .colorType()[primary];
+      });
+
+      .is(previous, {
+        color: .colorType()[info];
+      });
+      .is(next, {
+        color: .colorType()[info];
+      })
+    });
+  });
+
+  .m(center, {
+    height: 48px;
+    width: 100%;
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  });
 });
 
 
