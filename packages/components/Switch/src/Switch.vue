@@ -7,7 +7,7 @@ defineOptions({
   name: 'ZSwitch',
 })
 
-const { modelValue, activeText, inactiveText, disabled } = defineProps(switchProps)
+const { modelValue, activeText, inactiveText, disabled, activeIcon, inactiveIcon } = defineProps(switchProps)
 const emits = defineEmits(['change'])
 
 const ns = createNameSpace('switch')
@@ -47,7 +47,16 @@ watch(() => modelValue, (newValue) => {
           ns.is('inactive', !active),
           ns.em('container', 'button'),
         ]"
-      />
+      >
+        <component
+          :is="active ? activeIcon : inactiveIcon"
+          v-if="activeIcon || inactiveIcon"
+          :class="[
+            ns.is('active', active),
+            ns.is('inactive', !active),
+          ]"
+        />
+      </div>
     </div>
     <div :class="[ns.bm('text', 'inactive'), ns.is('close', !active)]">
       {{ inactiveText }}

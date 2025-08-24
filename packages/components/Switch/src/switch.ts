@@ -1,3 +1,5 @@
+import type { Component, PropType } from 'vue'
+
 export const switchProps = {
   modelValue: {
     type: Boolean,
@@ -14,5 +16,11 @@ export const switchProps = {
   disabled: {
     type: Boolean,
     default: false,
+  },
+  activeIcon: {
+    type: Object as PropType<Component>,
+  },
+  inactiveIcon: {
+    type: Object as PropType<Component>,
   },
 }
