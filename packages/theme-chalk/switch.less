@@ -5,7 +5,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
+};
+
+.disabled() {
+  cursor: not-allowed !important;
+  opacity: 0.6;
+};
 
 .namespace(switch, {
   display: flex;
@@ -38,6 +43,10 @@
       background-color: #dcdfe6;
     });
 
+    .is(disabled, {
+      .disabled();
+    });
+
     .m(button, {
       position: absolute;
 
@@ -62,6 +71,10 @@
     .is(close, {
       color: .colorType()[primary];
     });
+  });
+
+  .is(disabled, {
+    .disabled();
   });
 
   @keyframes is-active {
