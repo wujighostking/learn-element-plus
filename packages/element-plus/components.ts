@@ -7,6 +7,7 @@ import {
   ZTimeline,
   ZTimelineItem,
 } from '@learn-element-plus/components'
+import ZSwitch from '@learn-element-plus/components/Switch'
 
 export default [
   ZIcon,
@@ -16,6 +17,7 @@ export default [
   ZTimeline,
   ZTimelineItem,
   ZCalendar,
+  ZSwitch,
 ]
 
 declare module 'vue' {
@@ -27,5 +29,6 @@ declare module 'vue' {
     ZTimeline: typeof ZTimeline
     ZTimelineItem: typeof ZTimelineItem
     ZCalendar: typeof ZCalendar
+    ZSwitch: typeof ZSwitch
   }
 }
