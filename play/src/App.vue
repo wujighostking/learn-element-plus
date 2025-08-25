@@ -5,6 +5,7 @@ import Calendar from '@/Calendar.vue'
 import Icon from '@/Icon.vue'
 import LayOut from '@/lay-out.vue'
 import Link from '@/Link.vue'
+import Message from '@/Message.vue'
 import Switch from '@/Switch.vue'
 import Timeline from '@/Timeline.vue'
 </script>
@@ -30,6 +31,9 @@ import Timeline from '@/Timeline.vue'
     <hr>
 
     <Switch />
+    <hr>
+
+    <Message />
   </LayOut>
 </template>
 
