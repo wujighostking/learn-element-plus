@@ -19,8 +19,9 @@ export default [
   ZTimelineItem,
   ZCalendar,
   ZSwitch,
-  ZMessage,
 ]
+
+export { ZMessage }
 
 declare module 'vue' {
   export interface GlobalComponents {
@@ -32,6 +33,5 @@ declare module 'vue' {
     ZTimelineItem: typeof ZTimelineItem
     ZCalendar: typeof ZCalendar
     ZSwitch: typeof ZSwitch
-    ZMessage: typeof ZMessage
   }
 }

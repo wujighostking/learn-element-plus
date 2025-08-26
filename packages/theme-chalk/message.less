@@ -1,0 +1,45 @@
+@import url(./common/create.less);
+@import url(./common/var.less);
+
+.namespace(message, {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  box-sizing: border-box;
+  padding: 8px 12px;
+
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  each(.backgroundColorType(), .(@value, @type) {
+    .m(@type, {
+      background-color: @value;
+      border-radius: 4px;
+    });
+  });
+
+  each(.colorType(), .(@value, @type) {
+    .em(message, @type, {
+      color: @value;
+      width: 100%;
+    });
+  });
+
+  each(.colorType(), .(@value, @type) {
+    .bm(icon, @type, {
+      width: 20px;
+      height: 20px;
+      color: @value;
+    });
+  });
+
+  .b(close, {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  });
+});
