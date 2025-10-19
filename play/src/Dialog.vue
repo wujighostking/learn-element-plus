@@ -29,7 +29,7 @@ function confirm() {
       close
     </z-button>
   </div>
-  <z-dialog v-model="visible" title="Tips">
+  <z-dialog v-model="visible" title="Tips" center>
     <div>content</div>
 
     <template #footer>

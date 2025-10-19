@@ -13,10 +13,10 @@ export const dialogProps = {
     type: Boolean,
     default: false,
   },
-  // top: {
-  //   type: String,
-  //   default: '15vh',
-  // }
+  center: {
+    type: Boolean,
+    default: false,
+  },
   modal: {
     type: Boolean,
     default: true,

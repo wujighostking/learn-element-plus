@@ -8,7 +8,7 @@ defineOptions({
   name: 'ZDialog',
 })
 
-const { title, width, fullscreen, modal } = defineProps(dialogProps)
+const { title, width, fullscreen, modal, center } = defineProps(dialogProps)
 
 const modelValue = defineModel()
 
@@ -21,6 +21,7 @@ const ns = createNameSpace('dialog')
 const classNames = computed(() => [
   ns.b(),
   ns.is('modal', modal),
+  ns.is('center', center),
 ])
 
 const handleWheel = LOOP
