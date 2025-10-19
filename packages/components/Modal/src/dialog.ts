@@ -1,10 +1,26 @@
-import type { ExtractPropTypes } from 'vue'
+import type { Component, ExtractPropTypes, PropType } from 'vue'
 
 export const dialogProps = {
-  modelValue: {
+  title: {
+    type: [String, Object] as PropType<string | Component>,
+    default: '',
+  },
+  width: {
+    type: [String, Number],
+    default: '50%',
+  },
+  fullscreen: {
     type: Boolean,
     default: false,
   },
-} as const
+  // top: {
+  //   type: String,
+  //   default: '15vh',
+  // }
+  modal: {
+    type: Boolean,
+    default: true,
+  },
+}
 
-export type DialogPropsType = ExtractPropTypes<typeof dialogProps>
+export type DialogProps = ExtractPropTypes<typeof dialogProps>

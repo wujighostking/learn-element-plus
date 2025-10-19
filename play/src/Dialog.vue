@@ -21,7 +21,7 @@ function closeDialog() {
       close
     </z-button>
   </div>
-  <z-dialog v-model="visible" />
+  <z-dialog v-model="visible" title="Tips" />
 </template>
 
 <style scoped>
