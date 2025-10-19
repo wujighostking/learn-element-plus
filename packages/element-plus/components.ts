@@ -2,6 +2,7 @@ import {
   ZAlert,
   ZButton,
   ZCalendar,
+  ZDialog,
   ZIcon,
   ZLink,
   ZMessage,
@@ -19,6 +20,7 @@ export default [
   ZTimelineItem,
   ZCalendar,
   ZSwitch,
+  ZDialog,
 ]
 
 export { ZMessage }
@@ -33,5 +35,6 @@ declare module 'vue' {
     ZTimelineItem: typeof ZTimelineItem
     ZCalendar: typeof ZCalendar
     ZSwitch: typeof ZSwitch
+    ZDialog: typeof ZDialog
   }
 }

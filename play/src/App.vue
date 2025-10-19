@@ -2,6 +2,7 @@
 import Alert from '@/Alert.vue'
 import Button from '@/Button.vue'
 import Calendar from '@/Calendar.vue'
+import Dialog from '@/Dialog.vue'
 import Icon from '@/Icon.vue'
 import LayOut from '@/lay-out.vue'
 import Link from '@/Link.vue'
@@ -34,6 +35,9 @@ import Timeline from '@/Timeline.vue'
     <hr>
 
     <Message />
+    <hr>
+
+    <Dialog />
   </LayOut>
 </template>
 
