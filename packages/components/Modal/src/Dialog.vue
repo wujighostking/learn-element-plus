@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Close } from '@element-plus/icons-vue'
-import { createNameSpace, isString } from '@learn-element-plus/utils'
-import { computed, h } from 'vue'
+import { createNameSpace, isString, LOOP } from '@learn-element-plus/utils'
+import { computed, h, useSlots } from 'vue'
 import { dialogProps } from './dialog'
 
 defineOptions({
@@ -15,13 +15,15 @@ const modelValue = defineModel()
 const titleComponent = computed(() => isString(title) ? h('div', title) : h(title))
 const _width = computed(() => isString(width) ? width : `${width}px`)
 
+const { footer, header } = useSlots()
+
 const ns = createNameSpace('dialog')
 const classNames = computed(() => [
   ns.b(),
   ns.is('modal', modal),
 ])
 
-function handleWheel() { }
+const handleWheel = LOOP
 function close() {
   modelValue.value = false
 }
@@ -34,7 +36,8 @@ function close() {
         :style="{ width: _width }" :class="[ns.b('content'), ns.is('fullscreen', fullscreen)]"
         @click.stop="handleWheel"
       >
-        <div :class="ns.e('header')">
+        <slot name="header" />
+        <div v-if="!header" :class="ns.e('header')">
           <div :class="ns.em('header', 'title')">
             <title-component />
           </div>
@@ -50,7 +53,7 @@ function close() {
           <slot />
         </div>
 
-        <div>
+        <div v-if="footer">
           <slot name="footer" />
         </div>
       </div>
