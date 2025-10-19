@@ -10,6 +10,14 @@ function openDialog() {
 function closeDialog() {
   visible.value = false
 }
+
+function cancel() {
+  visible.value = false
+}
+
+function confirm() {
+  visible.value = false
+}
 </script>
 
 <template>
@@ -21,7 +29,20 @@ function closeDialog() {
       close
     </z-button>
   </div>
-  <z-dialog v-model="visible" title="Tips" />
+  <z-dialog v-model="visible" title="Tips">
+    <div>content</div>
+
+    <template #footer>
+      <div class="flex gap-10px justify-end">
+        <z-button type="default" @click="cancel">
+          取消
+        </z-button>
+        <z-button type="primary" @click="confirm">
+          确定
+        </z-button>
+      </div>
+    </template>
+  </z-dialog>
 </template>
 
 <style scoped>

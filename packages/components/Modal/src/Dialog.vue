@@ -46,9 +46,13 @@ function close() {
           </div>
         </div>
 
-        <div>content</div>
+        <div>
+          <slot />
+        </div>
 
-        <div>footer</div>
+        <div>
+          <slot name="footer" />
+        </div>
       </div>
     </div>
   </Teleport>
