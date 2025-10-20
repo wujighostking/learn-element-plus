@@ -19,7 +19,7 @@ export const dialogProps = {
   },
   modal: {
     type: Boolean,
-    default: true,
+    default: false,
   },
 }
 
