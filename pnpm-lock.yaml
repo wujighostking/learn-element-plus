@@ -75,6 +75,9 @@ importers:
 
   packages/components:
     dependencies:
+      '@learn-element-plus/hooks':
+        specifier: workspace:*
+        version: link:../hooks
       '@learn-element-plus/utils':
         specifier: workspace:^
         version: link:../utils
@@ -90,6 +93,8 @@ importers:
       '@learn-element-plus/utils':
         specifier: workspace:^
         version: link:../utils
+
+  packages/hooks: {}
 
   packages/theme-chalk: {}
 

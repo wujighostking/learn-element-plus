@@ -21,6 +21,10 @@ export const dialogProps = {
     type: Boolean,
     default: false,
   },
+  draggable: {
+    type: Boolean,
+    default: false,
+  },
 }
 
 export type DialogProps = ExtractPropTypes<typeof dialogProps>

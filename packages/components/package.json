@@ -12,6 +12,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@learn-element-plus/hooks": "workspace:*",
     "@learn-element-plus/utils": "workspace:^"
   }
 }
